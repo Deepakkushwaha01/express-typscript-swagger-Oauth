@@ -1,0 +1,14 @@
+export const JwtExpiresIn = {
+  ACCESS_TOKEN: {
+    EXPIRES_IN: '15m',
+    IN_MINUTES: 15,
+    IN_SECONDS: 900,
+    IN_MILI_SECONDS: 900000
+  },
+  REFRESH_TOKEN: {
+    EXPIRES_IN: '1d',
+    IN_MINUTES: 1440,
+    IN_SECONDS: 86400,
+    IN_MILI_SECONDS: 86400000
+  }
+}
