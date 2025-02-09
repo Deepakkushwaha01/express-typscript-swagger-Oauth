@@ -6,6 +6,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import Connection from './database/connection.ts'
 import router from './router/routes.ts'
+import swaggerDocs from './docs/swagger.ts'
+import logger from './utils/logger.ts'
 
 const app = express()
 
@@ -16,7 +18,7 @@ app.use(router)
 
 app.use(
   cors({
-    credentials: true,
+    credentials: true
   })
 )
 
@@ -28,5 +30,7 @@ const server = http.createServer(app)
 const port = process.env.PORT || 8000
 
 server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
+  logger.info(`Server is running at http://localhost:${port}`)
 })
+
+swaggerDocs(app, port)
